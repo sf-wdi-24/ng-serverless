@@ -1,0 +1,23 @@
+<h1>Welcome to the Books Index Page!</h1>
+<form>
+  <h2>
+    Create a new book:
+  </h2>
+  Title: <input type="text" ng-model="newBook.title" class="form-control" />
+  <br />
+  Author: <input type="text" ng-model="newBook.author" class="form-control" />
+  <br />
+  Image: <input type="text" ng-model="newBook.image" class="form-control" />
+  <br />
+  Release Date: <input type="text" ng-model="newBook.releaseDate" class="form-control" />
+  <br />
+  <button ng-click="save(newBook)" class="btn btn-primary">
+    Save
+  </button>
+</form>
+<br>
+<div class="row" ng-repeat="book in allBooks">
+	<h3>{{book.title}}</h3>
+	<p>{{book.author}} / {{book.releaseDate}}</p>
+	<p><a ng-href="books/{{book._id}}">More Details</a></p>
+</div>
