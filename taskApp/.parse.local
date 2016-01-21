@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "taskApp"
+    },
+    "taskApp": {
+      "applicationId": "Yqv0XCcFnJKJ4CPM4NJIbUbnDNyTmG3hp7yiG2vd"
+    }
+  }
+}
