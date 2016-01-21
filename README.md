@@ -9,6 +9,10 @@ In addition to not being hosted on Heroku, your project must:
 1. Performs all CRUD operations.
 1. Uses Angular Routing.
 
+Your pull request must include a description of the process you used to host your app.
+
+Your pull request must include a description of issues you ran into while hosting your app.
+
 **Getting Started**
 * Fork this repo, and clone it into your `develop` folder on your local machine.
 
