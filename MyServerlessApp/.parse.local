@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "MyServerlessApp": {
+      "applicationId": "fZMJQsbFI8dAEHKbDZJFXACIOyVdFv3fUneR14Me"
+    },
+    "_default": {
+      "link": "MyServerlessApp"
+    }
+  }
+}
