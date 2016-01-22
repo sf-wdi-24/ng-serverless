@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "beer_me"
+    },
+    "beer_me": {
+      "applicationId": "qW9zbuzfoZsVP3xjEqL5blx81HKrQlPpF8OUoD7i"
+    }
+  }
+}
