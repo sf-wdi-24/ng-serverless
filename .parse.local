@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "MyParseApp": {
+      "applicationId": "927W7TTGno6KNkUCJ7pGh8iHVgXUh7qyL7wnrHfT"
+    },
+    "_default": {
+      "link": "MyParseApp"
+    }
+  }
+}
