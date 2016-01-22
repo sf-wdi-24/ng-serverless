@@ -1,5 +1,4 @@
 # Angular Serverless
---
 
 ## Link to project on Parse
 [http://takeabook.parseapp.com/](http://takeabook.parseapp.com/)

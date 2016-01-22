@@ -4,7 +4,7 @@ var app = angular.module("superCrudApp", ["ngRoute", "ngResource"]);
 // factory
 
 app.factory("Books", ["$http", function($http) {
-	var baseUrl = "https://api.parse.com/1/classes/Book";
+	var baseUrl = "https://api.parse.com/1/classes/Book/";
     function getParams() {
     	return {
     		headers: {
@@ -76,7 +76,7 @@ app.controller('BooksIndexCtrl', ['$scope', 'Books', function ($scope, Books) {
 	};
 
   $scope.deleteBook = function(bookId) {
-		Books.delete({bookId: bookId});
+		Books.delete(bookId);
 	};
 }]);
 
@@ -95,7 +95,7 @@ app.controller('BooksShowCtrl', ['$scope', '$routeParams', 'Books', function ($s
 	};
 
   $scope.deleteBook = function(bookId) {console.log("something", bookId);
-		Books.delete({bookId: bookId});
+		Books.delete(bookId);
 	};
 
 }]);
