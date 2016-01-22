@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "bookstore"
+    },
+    "bookstore": {
+      "applicationId": "FsOryTqrGlHjga6Tjjdz4jzqCTUnMxM49d4N21dV"
+    }
+  }
+}
