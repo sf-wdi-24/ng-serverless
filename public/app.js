@@ -56,9 +56,9 @@ app.controller('taskIndexCtrl', ['$scope', 'Task', function($scope, Task) {
 
     $scope.deleteTask = function(task) {
       Task.remove({taskId: task.objectId});
-    }
+    };
     $scope.updateTask = function(task) {
-      Task.update(task);
+      Task.update({taskId: task.objectId}, task);
       editTaskForm = false;
     };
 }]);
