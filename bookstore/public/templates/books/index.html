@@ -21,13 +21,12 @@
 	</div>
 </form>
 <hr>
-<h4 class="text-center">{{loading ? "Loading..." : ""}}</h4>
 <div class="row" ng-repeat="book in books" style="margin-bottom: 10px">
 	<div class="col-xs-4">
 		<img src="{{book.image}}" class="img-responsive" style="width: 200px">
 	</div>
 	<div class="col-xs-8">
-		<h3><a ng-href="/books/{{book._id}}">{{book.attributes.title}}</a></h3>
+		<h3><a ng-href="/books/#/{{book.id}}">{{book.attributes.title}}</a></h3>
 		<h4>Author: {{book.attributes.author}}</h4>
 		<h4>Release Date: {{book.attributes.releaseDate}}</h4>
 	</div>
