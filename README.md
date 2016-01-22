@@ -5,7 +5,7 @@
 [http://takeabook.parseapp.com/](http://takeabook.parseapp.com/)
 
 --
-![](takeabook.png)
+![](public/takeabook.png)
 
 ## Process to host app
 * Signed up and followed set up instructions on website
