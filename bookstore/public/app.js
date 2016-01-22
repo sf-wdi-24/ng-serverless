@@ -26,7 +26,6 @@ app.controller('BooksIndexCtrl', ['$scope', '$q', '$location', function($scope, 
 					console.log(object.get("title"));
 				}
 				$scope.books = results;
-				$location.path("/");
 			},
 			error: function(error) {
 				alert("Error: " + error.code + " " + error.message);
@@ -38,7 +37,7 @@ app.controller('BooksIndexCtrl', ['$scope', '$q', '$location', function($scope, 
 				success: function(savedBook) {
 					console.log("saved book", savedBook);
 					$scope.books.push(savedBook);
-					$location.path("/#");
+					$location.path("/");
 				},
 				error: function(savedBook, error) {
 					console.log("new book not saved: " + error.message);
