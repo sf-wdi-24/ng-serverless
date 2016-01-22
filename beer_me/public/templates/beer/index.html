@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-md-4">
+		<button ng-hide="addBeerForm" ng-click="addBeerForm = true">Add Brewski</button>
+		<form ng-show="addBeerForm" ng-submit="addBrewski()">
+			<div class="form-group">
+				<label for="name">Beer Name</label>
+				<input type="text" class="form-control" id="name" ng-model="newBeer.beer_name">
+			</div>
+			<div class="form-group">
+				<label for="brewery">Brewery</label>
+				<input type="text" class="form-control" id="brewery" ng-model="newBeer.brewery">
+			</div>
+			<div class="form-group">
+				<label for="delicious">Crazy Good?</label>
+				<input type="checkbox" id="delicious" ng-model="newBeer.delicious">
+			</div>
+			<div class="form-group">
+				<input type="submit" class="form-control btn btn-danger">
+			</div>
+		</form>
+	</div>
+	<div class="col-md-8">
+		<h1>Beer List</h1>
+		<div ng-repeat="beer in beers">
+			<p><a href="/beers/{{ beer.objectId }}">{{ beer.beer_name }} - {{ beer.brewery }}</a></p>
+		</div>
+	</div>
+</div>
+
+
