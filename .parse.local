@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "AngularBookApp": {
+      "applicationId": "JjfvfpGDvmx9etMgv916ittvni3QkdvdXY6ODbEc"
+    },
+    "_default": {
+      "link": "AngularBookApp"
+    }
+  }
+}
