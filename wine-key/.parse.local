@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "WineKey": {
+      "applicationId": "JRtMGAPLmTepO6hBHI49utGj5hD0ANu19rtLXPiz"
+    },
+    "_default": {
+      "link": "WineKey"
+    }
+  }
+}
