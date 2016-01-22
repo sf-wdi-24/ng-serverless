@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "BookStoreRESTApi": {
+      "applicationId": "caenQnGSYdb6GvHQVEme8tZ879SA8Wv7xDQy3NzM"
+    },
+    "_default": {
+      "link": "BookStoreRESTApi"
+    }
+  }
+}
