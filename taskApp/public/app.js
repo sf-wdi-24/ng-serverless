@@ -7,11 +7,6 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'templates/tasks/index.html',
       controller: 'taskIndexCtrl'
     });
-    // .when('taks/:id', {
-    //   templateUrl: 'templates/tasks/show.html',
-    //   controller: 'taskShowCtrl'
-    // });
-
 }]);
 app.factory('Task', ['$resource', function($resource) {
   return $resource('https://api.parse.com/1/classes/Task/:taskId', {taskId: '@taskId'}, {
@@ -36,7 +31,7 @@ app.factory('Task', ['$resource', function($resource) {
       'X-Parse-REST-API-Key': '7TghBbZOHJbLoWD7eOcxkNRF0DbCkRM2COMm8Bb6'
       }
     }, 
-    delete: {
+    remove: {
       method: 'DELETE',
       headers: {
       'X-Parse-Application-Id': 'Yqv0XCcFnJKJ4CPM4NJIbUbnDNyTmG3hp7yiG2vd',
@@ -55,11 +50,12 @@ app.controller('taskIndexCtrl', ['$scope', 'Task', function($scope, Task) {
       console.log(error);
     });
     $scope.createTask = function(task) {
-      Task.save(task);
+      var newTask = Task.save(task);
+      $scope.allTasks.push(newTask);
     };
 
     $scope.deleteTask = function(task) {
-      Task.delete({id: task.objectId});
+      Task.remove({taskId: task.objectId});
     }
     $scope.updateTask = function(task) {
       Task.update(task);
