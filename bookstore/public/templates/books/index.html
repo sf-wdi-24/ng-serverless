@@ -27,8 +27,8 @@
 		<img src="{{book.image}}" class="img-responsive" style="width: 200px">
 	</div>
 	<div class="col-xs-8">
-		<h3><a ng-href="/books/{{book._id}}">{{book.title}}</a></h3>
-		<h4>Author: {{book.author}}</h4>
-		<h4>Release Date: {{book.releaseDate}}</h4>
+		<h3><a ng-href="/books/{{book._id}}">{{book.attributes.title}}</a></h3>
+		<h4>Author: {{book.attributes.author}}</h4>
+		<h4>Release Date: {{book.attributes.releaseDate}}</h4>
 	</div>
 </div>

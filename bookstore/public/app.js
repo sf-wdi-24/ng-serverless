@@ -1,12 +1,6 @@
-Parse.initialize("FsOryTqrGlHjga6Tjjdz4jzqCTUnMxM49d4N21dV", "sG5UJ9dsmFWmJL7k2X0kQoZJfEW1dSykcT2mCOPW");
-var TestObject = Parse.Object.extend("TestObject");
-var testObject = new TestObject();
-testObject.save({foo: "bar"}).then(function(object) {
-  alert("yay! it worked");
-});
 
 var app = angular.module("superCrudApp", ["ngRoute", "ngResource"]);
-app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'templates/books/index.html',
@@ -16,54 +10,34 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 			templateUrl: 'templates/books/show.html',
 			controller: 'BooksShowCtrl'
 		});
-	$locationProvider
-		.html5Mode({
-			enabled: true,
-			requireBase: false
-		});
 }]);
-app.factory("Book", ["$resource", function($resource) {
-  return $resource("https://super-crud.herokuapp.com/books/:id", { id: "@_id" }, {
-    query: {
-      isArray: true,
-      transformResponse: function(data) { return angular.fromJson(data).books; }
-    },
-    update: { method: 'PUT' }
-  });
-}]);
-app.controller('BooksIndexCtrl', ['$scope', 'Book', function($scope, Book) {
-	$scope.loading = true;
-	$scope.books = Book.query(function() {
-		$scope.loading = false;
+app.run(function () {
+  Parse.initialize("FsOryTqrGlHjga6Tjjdz4jzqCTUnMxM49d4N21dV", "sG5UJ9dsmFWmJL7k2X0kQoZJfEW1dSykcT2mCOPW");
+})
+.controller('BooksIndexCtrl', ['$scope', '$q', '$location', function($scope, $q, $location) {
+  var BookDfd = $q.defer();
+  var Book = Parse.Object.extend('Book');
+  var queryBook = new Parse.Query(Book);
+  queryBook.find({
+	  success: function(results) {
+	  	$scope.books = results;
+	  	$location.path("/");
+	  },
+	  error: function(error) {
+	    alert("Error: " + error.code + " " + error.message);
+	  }
 	});
 	$scope.addBook = function() {
-		if (!$scope.newBook.image) {
-			$scope.newBook.image = "http://gujaratprachar.com/img/placeholder_noImage_bw.png";
-		}
-		addedBook = Book.save($scope.newBook);
-		$scope.books.unshift(addedBook);
-		$scope.newBook = {};
-	};
-}]);
-app.controller('BooksShowCtrl', ['$scope', '$routeParams', '$location', 'Book', function($scope, $routeParams, $location, Book) {
-	var bookId = $routeParams.id;
-	book = Book.get({id: bookId},
-		function(result) {
-			$scope.book = result;
-		},
-		function(error) {
-			console.log(error.statusText);
-			$location.path("/");
-		});
-	$scope.deleteBook = function() {
-		Book.delete({id: bookId}, function(data) {
-			$location.path("/");
-			alert("You have deleted book " + data.title);
-		});
-	};
-	$scope.editBook = function() {
-		Book.update({id: bookId}, $scope.book, function(data) {
-			$location.path("/");
+		var newBook = new Book();
+		newBook.save($scope.newBook, {
+			success: function(savedBook) {
+				console.log("saved book", savedBook);
+				$scope.books.push(savedBook);
+				$location.path("/");
+			},
+			error: function(savedBook, error) {
+				console.log("new book not saved: " + error.message);
+			}
 		});
 	};
 }]);
