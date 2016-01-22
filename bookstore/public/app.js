@@ -1,13 +1,18 @@
 var app = angular.module("superCrudApp", ["ngRoute", "ngResource"]);
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'templates/books/index.html',
 			controller: 'BooksIndexCtrl'
 		})
-		.when('/books/#/:id', {
+		.when('/books/:id', {
 			templateUrl: 'templates/books/show.html',
 			controller: 'BooksShowCtrl'
+		});
+		$locationProvider
+		.html5Mode({
+			enabled: true,
+			requireBase: false
 		});
 }]);
 // run(function() {
@@ -20,7 +25,7 @@ app.controller('BooksIndexCtrl', ['$scope', '$q', '$location', function($scope, 
 		var queryBook = new Parse.Query(Book);
 		queryBook.find({
 			success: function(results) {
-				console.log("sucess");
+				console.log("sucess", results[0]);
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
 					console.log(object.get("title"));
@@ -51,12 +56,20 @@ app.controller('BooksShowCtrl', ['$scope', '$routeParams', '$location', '$q', fu
 	var query = new Parse.Query(Book);
 	query.get(bookId, {
 	  success: function(foundBook) {
-	    // The object was retrieved successfully.
 	    $scope.book = foundBook;
+	    console.log(foundBook.get("title") + " book is found.");
+	    $scope.deleteBook = function() {
+				foundBook.destroy({
+				  success: function(myObject) {
+				  	$location.path("/");
+				  },
+				  error: function(myObject, error) {
+				  }
+				});
+			};
 	  },
 	  error: function(foundBook, error) {
-	    // The object was not retrieved successfully.
-	    // error is a Parse.Error with an error code and message.
+	  	console.log(error.message);
 	  }
 	});
 }]);
