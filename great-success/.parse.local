@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "GreatSuccess": {
+      "applicationId": "fbs2nfyu4saXgQWdguVH9uIARIUTsyY9FwStg74O"
+    },
+    "_default": {
+      "link": "GreatSuccess"
+    }
+  }
+}
