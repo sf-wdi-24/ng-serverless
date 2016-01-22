@@ -1,4 +1,5 @@
-#<img src="http://i.imgur.com/5rJH3co.png" height="60"> Angular + Parse
+<img src="http://i.imgur.com/5rJH3co.png" height="300"> 
+#Angular + Parse
 
 
 
