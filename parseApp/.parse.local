@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "ng-serverless"
+    },
+    "ng-serverless": {
+      "applicationId": "kmtdS7NHPMeMnkTZj5S141xzCqsWRVNEt4Av9zWV"
+    }
+  }
+}
