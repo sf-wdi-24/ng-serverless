@@ -1,3 +1,6 @@
+As is, I'm already strugling trying to understand Angular. Then Got even more offtrack trying to understand the docs for Parse Deploy and implementation.  Got very frustrated. I have decided that it will benefit me more to finish the tutorials at codeschool and codecademy and then I'll try to come back for a new attempt to complete the HW for this week.
+
+
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60"> Angular Serverless
 
 More information can be found on <a href="https://github.com/sf-wdi-24/modules/tree/master/week-10-angular/day-04/module-02" target="_blank">the lesson's readme</a>.
